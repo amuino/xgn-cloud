@@ -12,8 +12,6 @@ adduser ubuntu rvm
 
 sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
 
-source /usr/local/lib/rvm
-
 rvm install 1.9.2
 rvm use 1.9.2 --default
 
