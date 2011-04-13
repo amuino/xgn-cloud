@@ -2,20 +2,23 @@
 # #!/bin/bash 
 # curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | bash > /home/ubuntu/setup.out 2> /home/ubuntu/setup.err ; chown ubuntu:ubuntu /home/ubuntu/setup.*
 
+set -x # log every command
+set -e # exit on first error
+
 export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get upgrade -y
 
 # RVM
-echo **
-echo ** instalando RVM
-echo **
+echo ==
+echo == instalando RVM
+echo ==
 curl -s https://rvm.beginrescueend.com/install/rvm | /bin/bash
 
 adduser ubuntu rvm
 
-echo **
-echo ** instalando Ruby 1.9.2
-echo **
+echo ==
+echo == instalando Ruby 1.9.2
+echo ==
 
 sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
 
@@ -23,16 +26,16 @@ rvm install 1.9.2
 rvm use 1.9.2 --default
 
 # MySQL
-echo **
-echo ** instalando MySQL
-echo **
+echo ==
+echo == instalando MySQL
+echo ==
 
 apt-get -y install mysql-client mysql-server
 
 # Phusion Pasenger
-echo **
-echo ** instalando Phusion Passenger
-echo **
+echo ==
+echo == instalando Phusion Passenger
+echo ==
 
 apt-get -y install apache2-mpm-prefork libapache2-mod-passenger
 
