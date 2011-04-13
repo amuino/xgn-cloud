@@ -16,4 +16,4 @@ sh -c 'echo "<VirtualHost *:80>                                        \n\
     CustomLog /var/log/apache2/production-access.log combined          \n\
 </VirtualHost>\n" > /etc/apache2/sites-available/xgn'
 
-a2ensite twimarks
+a2ensite xgn

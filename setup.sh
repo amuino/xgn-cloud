@@ -6,9 +6,16 @@ export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get upgrade -y
 
 # RVM
+echo **
+echo ** instalando RVM
+echo **
 curl -s https://rvm.beginrescueend.com/install/rvm | /bin/bash
 
 adduser ubuntu rvm
+
+echo **
+echo ** instalando Ruby 1.9.2
+echo **
 
 sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
 
@@ -16,10 +23,17 @@ rvm install 1.9.2
 rvm use 1.9.2 --default
 
 # MySQL
+echo **
+echo ** instalando MySQL
+echo **
 
 apt-get -y install mysql-client mysql-server
 
 # Phusion Pasenger
+echo **
+echo ** instalando Phusion Passenger
+echo **
+
 apt-get -y install apache2-mpm-prefork libapache2-mod-passenger
 
 sh -c 'echo "<IfModule mod_passenger.c>\n  PassengerRoot /usr\n  PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p180/ruby\n</IfModule>" > /etc/apache2/mods-available/passenger.conf'
