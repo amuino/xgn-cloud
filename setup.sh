@@ -22,8 +22,10 @@ echo ==
 
 sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
 
-rvm install 1.9.2
-rvm use 1.9.2 --default
+rvm install 1.9.2-p180
+rvm use 1.9.2-p180 --default
+
+gem install bundler
 
 # MySQL
 echo ==
@@ -37,9 +39,13 @@ echo ==
 echo == instalando Phusion Passenger
 echo ==
 
-apt-get -y install apache2-mpm-prefork libapache2-mod-passenger
+apt-get -y install libcurl4-openssl-dev apache2-mpm-prefork apache2-prefork-dev libapr1-dev libaprutil1-dev
+gem install passenger -v 3.0.3 --no-ri --no-rdoc
+/usr/local/rvm/gems/ruby-1.9.2-p180/gems/passenger-3.0.3/bin/passenger-install-apache2-module -a
 
-sh -c 'echo "<IfModule mod_passenger.c>\n  PassengerRoot /usr\n  PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p180/ruby\n</IfModule>" > /etc/apache2/mods-available/passenger.conf'
+sh -c 'echo "LoadModule passenger_module /usr/local/rvm/gems/ruby-1.9.2-p180/gems/passenger-3.0.3/ext/apache2/mod_passenger.so" > /etc/apache2/mods-available/passenger.load'
+sh -c 'echo "<IfModule mod_passenger.c>\n  PassengerRoot /usr/local/rvm/gems/ruby-1.9.2-p180/gems/passenger-3.0.3\n  PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p180/ruby\n</IfModule>" > /etc/apache2/mods-available/passenger.conf'
+
 sudo a2enmod passenger
 
 curl -s https://github.com/amuino/xgn-cloud/raw/master/prepare-site.sh | /bin/bash
