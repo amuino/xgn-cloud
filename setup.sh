@@ -6,12 +6,15 @@ set -x # log every command
 set -e # exit on first error
 
 export DEBIAN_FRONTEND=noninteractive
-apt-get update && apt-get upgrade -y
+
+# not needed for a demo
+# apt-get update && apt-get upgrade -y
 
 # RVM
 echo ==
 echo == instalando RVM
 echo ==
+apt-get install git-core
 curl -s https://rvm.beginrescueend.com/install/rvm | /bin/bash
 
 adduser ubuntu rvm
@@ -20,7 +23,7 @@ echo ==
 echo == instalando Ruby 1.9.2
 echo ==
 
-sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl git-core zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
+sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
 
 rvm install 1.9.2-p180
 rvm use 1.9.2-p180 --default
