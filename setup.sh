@@ -42,7 +42,7 @@ apt-get -y install apache2-mpm-prefork libapache2-mod-passenger
 sh -c 'echo "<IfModule mod_passenger.c>\n  PassengerRoot /usr\n  PassengerRuby /usr/local/rvm/wrappers/ruby-1.9.2-p180/ruby\n</IfModule>" > /etc/apache2/mods-available/passenger.conf'
 sudo a2enmod passenger
 
-curl -s https://github.com/amuino/xgn-cloud/blob/master/prepare-site.sh | /bin/bash
+curl -s https://github.com/amuino/xgn-cloud/raw/master/prepare-site.sh | /bin/bash
 
 /etc/init.d/apache2 restart
 
