@@ -1,7 +1,6 @@
 sh -c 'echo "<VirtualHost *:80>                                        \n\
     ServerAdmin amuino@1uptalent.com                                   \n\
     ServerName xgn.1uptalent.com                                       \n\
-    RailsEnv production                                                \n\
     DocumentRoot /home/ubuntu/production/current/public                \n\
     <Directory /home/ubuntu/production/current/public>                 \n\
         Allow from all                                                 \n\
