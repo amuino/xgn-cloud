@@ -1,6 +1,6 @@
 # Run with the following line in the user-data parameter when launching an instance
 # #!/bin/bash 
-# curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | bash > /home/ubuntu/setup.out 2> /home/ubuntu/setup.err ; chown ubuntu:ubuntu /home/ubuntu/setup.*
+# curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | bash ; chown ubuntu:ubuntu /home/ubuntu/setup.*
 
 set -x # log every command
 set -e # exit on first error
