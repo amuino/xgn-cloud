@@ -1,12 +1,12 @@
 # Run with the following line in the user-data parameter when launching an instance
-# #!/bin/sh 
-# curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | sh > /home/ubuntu/setup.out 2> /home/ubuntu/setup.err && chown ubuntu /home/ubuntu/setup.*
+# #!/bin/bash 
+# curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | bash > /home/ubuntu/setup.out 2> /home/ubuntu/setup.err ; chown ubuntu:ubuntu /home/ubuntu/setup.*
 
 export DEBIAN_FRONTEND=noninteractive
 apt-get update && apt-get upgrade -y
 
 # RVM
-curl -L http://bit.ly/rvm-install-system-wide | /bin/bash
+curl -s https://rvm.beginrescueend.com/install/rvm | /bin/bash
 
 adduser ubuntu rvm
 
