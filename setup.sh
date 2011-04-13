@@ -1,0 +1,1 @@
+echo "Worked" > /root/startup_script
