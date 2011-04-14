@@ -25,3 +25,5 @@ sh -c 'echo "<VirtualHost *:80>                                        \n\
 </VirtualHost>\n" > /etc/apache2/sites-available/default'
 
 a2ensite default
+
+apt-get -y install imagemagick
