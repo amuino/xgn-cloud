@@ -14,7 +14,7 @@ export DEBIAN_FRONTEND=noninteractive
 echo ==
 echo == instalando RVM
 echo ==
-apt-get install git-core
+apt-get -y install git-core
 curl -s https://rvm.beginrescueend.com/install/rvm | /bin/bash
 
 adduser ubuntu rvm
@@ -23,7 +23,7 @@ echo ==
 echo == instalando Ruby 1.9.2
 echo ==
 
-sudo apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
+apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev curl zlib1g zlib1g-dev libssl-dev libsqlite3-0 libsqlite3-dev sqlite3 libxml2-dev libxslt-dev libmysqlclient-dev
 
 rvm install 1.9.2-p180
 rvm use 1.9.2-p180 --default
