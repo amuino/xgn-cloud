@@ -26,4 +26,7 @@ sh -c 'echo "<VirtualHost *:80>                                        \n\
 
 a2ensite default
 
+echo "gem: --no-ri --no-rdoc" >> /home/ubuntu/.gemrc
+chown ubuntu:ubuntu /home/ubuntu/.gemrc
+
 apt-get -y install imagemagick
