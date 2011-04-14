@@ -1,14 +1,16 @@
 # Run with the following line in the user-data parameter when launching an instance
 # #!/bin/bash 
-# curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | bash ; chown ubuntu:ubuntu /home/ubuntu/setup.*
+# curl https://github.com/amuino/xgn-cloud/raw/master/setup.sh | bash > /home/ubuntu/out 2> /home/ubuntu/err ; chown ubuntu:ubuntu /home/ubuntu/setup.*
 
 set -x # log every command
 set -e # exit on first error
 
 export DEBIAN_FRONTEND=noninteractive
 
+apt-get update
+
 # not needed for a demo
-# apt-get update && apt-get upgrade -y
+# apt-get upgrade -y
 
 # RVM
 echo ==
@@ -28,7 +30,7 @@ apt-get -y install build-essential bison openssl libreadline5 libreadline5-dev c
 rvm install 1.9.2-p180
 rvm use 1.9.2-p180 --default
 
-gem install bundler
+gem install bundler --no-ri --no-rdoc
 
 # MySQL
 echo ==
