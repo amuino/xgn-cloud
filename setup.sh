@@ -17,7 +17,7 @@ echo ==
 echo == instalando RVM
 echo ==
 apt-get -y install bash curl git
-curl -s https://rvm.beginrescueend.com/install/rvm | /bin/bash
+bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)
 
 adduser ubuntu rvm
 
